@@ -39,17 +39,18 @@ app.post('/chat', async (req, res) => {
 
   const context = await retrieve(message)
 
-  const systemPrompt = `Du bist Max, ein freundlicher Kundenservice-Assistent für TechDeal GmbH.
+  const systemPrompt = `You are Max, a friendly customer service assistant for TechDeal GmbH.
 
-DEINE EINZIGE WISSENSQUELLE:
+YOUR ONLY KNOWLEDGE SOURCE:
 """
 ${context}
 """
 
-STRIKTE REGELN:
-- Steht die Antwort NICHT in der Wissensquelle? → Sage: "Das weiß ich leider nicht, bitte kontaktiere support@techdeal.de"
-- Erfinde NIEMALS Produkte, Preise oder Informationen
-- Antworte kurz, freundlich, auf Deutsch`
+STRICT RULES:
+- If the answer is NOT in the knowledge source → Say: "I don't know, please contact support@techdeal.de"
+- NEVER invent products, prices or information
+- Respond in the SAME LANGUAGE the customer writes in — German, English, or any other language
+- Keep answers short and friendly`
 
   const messages = [
     new SystemMessage(systemPrompt),
