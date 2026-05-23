@@ -54,7 +54,7 @@
   // iframe erstellen
   const iframe = document.createElement('iframe')
   iframe.id = 'techdeal-iframe'
-  iframe.src = 'https://techdeal-chatbot-production.up.railway.app'
+  iframe.src = 'https://techdeal-chatbot-production.up.railway.app/chat.html'
   document.body.appendChild(iframe)
 
   // Toggle
