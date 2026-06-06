@@ -347,11 +347,13 @@
       input.focus()
     }
 
+    let welcomeDone = false
+
     const sendSuggestion = (el) => {
+      if (!welcomeDone) return
       sendMessage(el.textContent.replace(/^[^\s]+\s/, ''))
     }
 
-    // Greeting mit Typing Animation
     window.addEventListener('load', () => {
       setTimeout(() => {
         showTyping()
@@ -360,12 +362,11 @@
           const welcomeText = "Hello! 👋 How can I help you today?"
           typeMessage(welcomeText, 'bot')
           setTimeout(() => {
-            suggestionsEl.style.display = 'flex'
+            welcomeDone = true
           }, welcomeText.length * 18)
         }, 1200)
       }, 400)
     })
-
     send.addEventListener('click', () => sendMessage())
     input.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage() })
   </script>
