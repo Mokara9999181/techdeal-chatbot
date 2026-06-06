@@ -265,13 +265,12 @@
 
   <div class="messages" id="messages"></div>
 
-  <div class="suggestions" id="suggestions">
+  <div class="suggestions" id="suggestions" style="display:none">
     <div class="suggestion" onclick="sendSuggestion(this)">🚚 Delivery time?</div>
     <div class="suggestion" onclick="sendSuggestion(this)">↩️ How to return?</div>
     <div class="suggestion" onclick="sendSuggestion(this)">💳 Payment options?</div>
     <div class="suggestion" onclick="sendSuggestion(this)">📦 Track my order</div>
     <div class="suggestion" onclick="sendSuggestion(this)">🛍️ Browse products</div>
-    <div class="suggestion" onclick="sendSuggestion(this)">❓ FAQ</div>
   </div>
 
   <div class="input-area">
@@ -358,7 +357,11 @@
         showTyping()
         setTimeout(() => {
           hideTyping()
-          typeMessage("Hello! 👋 How can I help you today?", 'bot')
+          const welcomeText = "Hello! 👋 How can I help you today?"
+          typeMessage(welcomeText, 'bot')
+          setTimeout(() => {
+            suggestionsEl.style.display = 'flex'
+          }, welcomeText.length * 18)
         }, 1200)
       }, 400)
     })
