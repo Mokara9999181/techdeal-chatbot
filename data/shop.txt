@@ -1,30 +1,79 @@
-VERSAND UND LIEFERZEIT
-Standardversand Lieferzeit: 3-5 Werktage. Kostenlos ab 50 Euro.
-Expressversand Lieferzeit: 1-2 Werktage. Kostet 9,99 Euro.
-Lieferung nach Österreich und Schweiz: 5-7 Werktage, kostet 14,99 Euro.
-Wir liefern nur in die DACH-Region Deutschland Österreich Schweiz.
+SHIPPING AND DELIVERY
+Standard shipping takes 3-5 business days and is free for orders over 50 Euro.
+Express shipping takes 1-2 business days and costs 9.99 Euro.
+We ship to Germany, Austria and Switzerland only.
+Shipping to Austria and Switzerland takes 5-7 business days and costs 14.99 Euro.
+Our shipping partner is DHL. You will receive a tracking number by email after shipping.
+How long does delivery take? Standard 3-5 days, express 1-2 days.
+When will my order arrive? Standard shipping 3-5 business days, express 1-2 business days.
+Do you ship internationally? We only ship within Germany, Austria and Switzerland.
+How much does shipping cost? Free over 50 Euro, otherwise standard rates apply.
 
-RÜCKGABE UND RETOURE
-Rückgaberecht: 30 Tage nach Kauf.
-Artikel muss unbenutzt und in Originalverpackung zurückgeschickt werden.
-Rücksendekosten trägt der Kunde außer bei defekten Artikeln.
-Rückerstattung erfolgt innerhalb von 5 Werktagen nach Eingang der Retoure.
+ORDERING AND PURCHASING
+You can buy and order products directly on our website techdeal.de.
+Add the product to your cart and proceed to checkout to complete your purchase.
+How do I buy something? Add to cart, go to checkout, choose payment method and confirm.
+After placing your order you will receive a confirmation email immediately.
+Orders can be cancelled within 1 hour after placing them.
+After 1 hour cancellation is no longer possible.
+To cancel your order contact support@techdeal.de immediately.
+Can I change my order? Only within 1 hour after ordering.
+Can I reserve a product? No, reservation is not possible.
 
-ZAHLUNG UND BEZAHLUNG
-Zahlungsmethoden: Kreditkarte Visa Mastercard, PayPal, Klarna Ratenkauf, Überweisung Vorkasse.
-Barzahlung ist nicht möglich.
+PAYMENT AND CHECKOUT
+We accept Visa, Mastercard, PayPal, Klarna and bank transfer.
+You can pay with credit card, PayPal, Klarna installments or prepayment bank transfer.
+Cash payment is not possible, we are online only.
+Klarna allows installment payment in 3 or 6 months.
+Can I pay with PayPal? Yes, PayPal is available at checkout.
+Can I pay by invoice? Yes, through Klarna invoice payment is possible.
+Is there a student discount? Unfortunately not available at this time.
+All payments are SSL encrypted and secure.
+An invoice is automatically sent to your email after purchase.
 
-PRODUKTE UND SORTIMENT
-Smartphones: iPhone 15, Samsung Galaxy S24, Google Pixel 8.
-Laptops: MacBook Air M3, Dell XPS 15, Lenovo ThinkPad X1.
-Zubehör: Hüllen, Ladekabel, Kopfhörer, Powerbanks.
+RETURNS AND REFUNDS
+You have 30 days to return any product after purchase.
+The item must be unused and in original packaging for a return to be accepted.
+Return shipping costs are paid by the customer except in case of defect.
+To start a return contact support@techdeal.de with your order number.
+Refund is processed within 5 business days after we receive the return.
+How do I return a product? Contact support@techdeal.de and we will guide you through the process.
+How long does a refund take? 5 business days after we receive your return.
+My product is defective, what do I do? Contact support@techdeal.de, we cover return shipping for defective items.
 
-KONTAKT UND ERREICHBARKEIT
-Email: support@techdeal.de
-Telefon: 030-123456789 erreichbar Montag bis Freitag 9 bis 18 Uhr.
-Live-Chat auf der Website verfügbar.
+PRODUCTS AND CATALOG
+We sell smartphones, laptops and accessories.
+Smartphones available: iPhone 15, Samsung Galaxy S24, Google Pixel 8.
+Laptops available: MacBook Air M3, Dell XPS 15, Lenovo ThinkPad X1.
+Accessories available: cases, charging cables, headphones, power banks.
+Do you have gaming laptops? We currently offer MacBook Air M3, Dell XPS 15 and Lenovo ThinkPad X1.
+Do you sell iPhones? Yes, we sell the iPhone 15.
+Do you sell Samsung phones? Yes, we sell the Samsung Galaxy S24.
+New products are added monthly.
+All products are brand new and come with original packaging.
 
-GARANTIE UND TRACKING
-Garantie: 2 Jahre gesetzliche Gewährleistung auf alle Produkte.
-Sendungsverfolgung: Nach Versand per Email mit DHL-Trackingnummer.
-Rechnung wird automatisch per Email zugeschickt.
+GUARANTEE AND WARRANTY
+All products come with 2 years legal warranty.
+In case of defect within warranty period you get free repair or replacement.
+Warranty does not cover self-caused damage.
+To claim warranty contact support@techdeal.de with your order number and description of the issue.
+How long is the warranty? 2 years on all products.
+
+TRACKING AND ORDER STATUS
+After shipping you receive a DHL tracking number by email.
+You can track your order on dhl.de with your tracking number.
+I haven't received my tracking number yet. Please allow 24 hours after order confirmation.
+My package hasn't arrived. Contact support@techdeal.de or DHL directly.
+
+CONTACT AND SUPPORT
+Email: support@techdeal.de — response within 24 hours.
+Phone: 030-123456789 available Monday to Friday 9am to 6pm.
+Live chat is available on the website.
+How can I contact you? Email support@techdeal.de or call 030-123456789.
+What are your support hours? Monday to Friday 9am to 6pm.
+
+ABOUT THE SHOP
+TechDeal GmbH is an online tech store based in Germany.
+We are online only, no physical store.
+Website: techdeal.de
+We sell premium smartphones, laptops and accessories at competitive prices.

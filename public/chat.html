@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -38,18 +33,16 @@
       align-items: center;
       justify-content: center;
       font-size: 16px;
+      animation: pulse 2s infinite;
     }
 
-    .header-info h3 {
-      font-size: 14px;
-      font-weight: 600;
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(124,58,237,0); }
     }
 
-    .header-info p {
-      font-size: 11px;
-      opacity: 0.6;
-      margin-top: 1px;
-    }
+    .header-info h3 { font-size: 14px; font-weight: 600; }
+    .header-info p { font-size: 11px; opacity: 0.6; margin-top: 1px; }
 
     .online-dot {
       width: 8px;
@@ -57,6 +50,12 @@
       background: #22c55e;
       border-radius: 50%;
       margin-left: auto;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
     }
 
     .messages {
@@ -75,6 +74,12 @@
       border-radius: 12px;
       font-size: 13px;
       line-height: 1.5;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .message.bot {
@@ -82,7 +87,7 @@
       color: #1a1a2e;
       align-self: flex-start;
       border-bottom-left-radius: 4px;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
 
     .message.user {
@@ -100,7 +105,8 @@
       border-radius: 12px;
       border-bottom-left-radius: 4px;
       align-self: flex-start;
-      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      animation: fadeIn 0.3s ease;
     }
 
     .typing span {
@@ -111,26 +117,16 @@
       animation: bounce 1.2s infinite;
     }
 
-    .typing span:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .typing span:nth-child(3) {
-      animation-delay: 0.4s;
-    }
+    .typing span:nth-child(2) { animation-delay: 0.2s; }
+    .typing span:nth-child(3) { animation-delay: 0.4s; }
 
     @keyframes bounce {
-
-      0%,
-      60%,
-      100% {
-        transform: translateY(0);
-      }
-
-      30% {
-        transform: translateY(-5px);
-      }
+      0%, 60%, 100% { transform: translateY(0); }
+      30% { transform: translateY(-5px); }
     }
+
+    /* Typewriter Effect */
+    .message.bot.typewriter { white-space: pre-wrap; }
 
     .input-area {
       padding: 12px 16px;
@@ -147,11 +143,10 @@
       border-radius: 24px;
       font-size: 13px;
       outline: none;
+      transition: border-color 0.2s;
     }
 
-    .input-area input:focus {
-      border-color: #7c3aed;
-    }
+    .input-area input:focus { border-color: #7c3aed; }
 
     .input-area button {
       width: 36px;
@@ -165,15 +160,35 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: transform 0.15s, background 0.2s;
     }
 
-    .input-area button:disabled {
-      background: #d1d5db;
-      cursor: not-allowed;
+    .input-area button:hover { transform: scale(1.1); background: #6d28d9; }
+    .input-area button:disabled { background: #d1d5db; cursor: not-allowed; transform: none; }
+
+    .suggestions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 0 16px 10px;
+      background: #fafafa;
     }
+
+    .suggestion {
+      font-size: 12px;
+      padding: 5px 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 20px;
+      background: white;
+      cursor: pointer;
+      color: #7c3aed;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .suggestion:hover { background: #7c3aed; color: white; border-color: #7c3aed; }
   </style>
 </head>
-
 <body>
   <div class="chat-header">
     <div class="avatar">🤖</div>
@@ -183,18 +198,43 @@
     </div>
     <div class="online-dot"></div>
   </div>
-  <div class="messages" id="messages">
-    <div class="message bot">Hello! How can I help you today? 👋</div>
+
+  <div class="messages" id="messages"></div>
+
+  <div class="suggestions" id="suggestions">
+    <div class="suggestion" onclick="sendSuggestion(this)">🚚 Shipping time?</div>
+    <div class="suggestion" onclick="sendSuggestion(this)">↩️ How to return?</div>
+    <div class="suggestion" onclick="sendSuggestion(this)">💳 Payment options?</div>
+    <div class="suggestion" onclick="sendSuggestion(this)">📦 Track my order</div>
   </div>
+
   <div class="input-area">
-    <input type="text" id="input" placeholder="Schreib eine Nachricht..." />
+    <input type="text" id="input" placeholder="Write a message..." />
     <button id="send">➤</button>
   </div>
+
   <script>
     const messages = document.getElementById('messages')
     const input = document.getElementById('input')
     const send = document.getElementById('send')
+    const suggestionsEl = document.getElementById('suggestions')
     const history = []
+
+    // Typewriter effect
+    const typeMessage = (text, role) => {
+      const div = document.createElement('div')
+      div.className = `message ${role} typewriter`
+      messages.appendChild(div)
+      messages.scrollTop = messages.scrollHeight
+
+      let i = 0
+      const interval = setInterval(() => {
+        div.textContent += text[i]
+        i++
+        messages.scrollTop = messages.scrollHeight
+        if (i >= text.length) clearInterval(interval)
+      }, 18)
+    }
 
     const addMessage = (text, role) => {
       const div = document.createElement('div')
@@ -218,11 +258,12 @@
       if (t) t.remove()
     }
 
-    const sendMessage = async () => {
-      const text = input.value.trim()
+    const sendMessage = async (text) => {
+      if (!text) text = input.value.trim()
       if (!text) return
       input.value = ''
       send.disabled = true
+      suggestionsEl.style.display = 'none'
       addMessage(text, 'user')
       history.push({ role: 'user', content: text })
       showTyping()
@@ -235,15 +276,29 @@
 
       const data = await response.json()
       hideTyping()
-      addMessage(data.reply, 'bot')
+      typeMessage(data.reply, 'bot')
       history.push({ role: 'bot', content: data.reply })
       send.disabled = false
       input.focus()
     }
 
-    send.addEventListener('click', sendMessage)
+    const sendSuggestion = (el) => {
+      sendMessage(el.textContent.replace(/^[^\s]+\s/, ''))
+    }
+
+    // Greeting mit Typing Animation
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        showTyping()
+        setTimeout(() => {
+          hideTyping()
+          typeMessage("Hello! 👋 How can I help you today?", 'bot')
+        }, 1200)
+      }, 400)
+    })
+
+    send.addEventListener('click', () => sendMessage())
     input.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage() })
   </script>
 </body>
-
 </html>
