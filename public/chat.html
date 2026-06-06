@@ -363,6 +363,10 @@
           typeMessage(welcomeText, 'bot')
           setTimeout(() => {
             welcomeDone = true
+            setTimeout(() => {
+              welcomeDone = true
+              suggestionsEl.style.display = 'flex'
+            }, welcomeText.length * 18)
           }, welcomeText.length * 18)
         }, 1200)
       }, 400)
