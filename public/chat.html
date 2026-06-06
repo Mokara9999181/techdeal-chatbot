@@ -265,7 +265,7 @@
 
   <div class="messages" id="messages"></div>
 
-  <div class="suggestions" id="suggestions" style="display:none">
+  <div class="suggestions" id="suggestions">
     <div class="suggestion" onclick="sendSuggestion(this)">🚚 Delivery time?</div>
     <div class="suggestion" onclick="sendSuggestion(this)">↩️ How to return?</div>
     <div class="suggestion" onclick="sendSuggestion(this)">💳 Payment options?</div>
@@ -363,10 +363,6 @@
           typeMessage(welcomeText, 'bot')
           setTimeout(() => {
             welcomeDone = true
-            setTimeout(() => {
-              welcomeDone = true
-              suggestionsEl.style.display = 'flex'
-            }, welcomeText.length * 18)
           }, welcomeText.length * 18)
         }, 1200)
       }, 400)
