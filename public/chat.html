@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -37,12 +42,27 @@
     }
 
     @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.4); }
-      50% { box-shadow: 0 0 0 6px rgba(124,58,237,0); }
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 0 0 6px rgba(124, 58, 237, 0);
+      }
     }
 
-    .header-info h3 { font-size: 14px; font-weight: 600; }
-    .header-info p { font-size: 11px; opacity: 0.6; margin-top: 1px; }
+    .header-info h3 {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .header-info p {
+      font-size: 11px;
+      opacity: 0.6;
+      margin-top: 1px;
+    }
 
     .online-dot {
       width: 8px;
@@ -54,8 +74,15 @@
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
     }
 
     .messages {
@@ -78,8 +105,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .message.bot {
@@ -87,7 +121,7 @@
       color: #1a1a2e;
       align-self: flex-start;
       border-bottom-left-radius: 4px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
     }
 
     .message.user {
@@ -105,7 +139,7 @@
       border-radius: 12px;
       border-bottom-left-radius: 4px;
       align-self: flex-start;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
       animation: fadeIn 0.3s ease;
     }
 
@@ -117,16 +151,31 @@
       animation: bounce 1.2s infinite;
     }
 
-    .typing span:nth-child(2) { animation-delay: 0.2s; }
-    .typing span:nth-child(3) { animation-delay: 0.4s; }
+    .typing span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
 
     @keyframes bounce {
-      0%, 60%, 100% { transform: translateY(0); }
-      30% { transform: translateY(-5px); }
+
+      0%,
+      60%,
+      100% {
+        transform: translateY(0);
+      }
+
+      30% {
+        transform: translateY(-5px);
+      }
     }
 
     /* Typewriter Effect */
-    .message.bot.typewriter { white-space: pre-wrap; }
+    .message.bot.typewriter {
+      white-space: pre-wrap;
+    }
 
     .input-area {
       padding: 12px 16px;
@@ -146,7 +195,9 @@
       transition: border-color 0.2s;
     }
 
-    .input-area input:focus { border-color: #7c3aed; }
+    .input-area input:focus {
+      border-color: #7c3aed;
+    }
 
     .input-area button {
       width: 36px;
@@ -163,8 +214,16 @@
       transition: transform 0.15s, background 0.2s;
     }
 
-    .input-area button:hover { transform: scale(1.1); background: #6d28d9; }
-    .input-area button:disabled { background: #d1d5db; cursor: not-allowed; transform: none; }
+    .input-area button:hover {
+      transform: scale(1.1);
+      background: #6d28d9;
+    }
+
+    .input-area button:disabled {
+      background: #d1d5db;
+      cursor: not-allowed;
+      transform: none;
+    }
 
     .suggestions {
       display: flex;
@@ -186,9 +245,14 @@
       white-space: nowrap;
     }
 
-    .suggestion:hover { background: #7c3aed; color: white; border-color: #7c3aed; }
+    .suggestion:hover {
+      background: #7c3aed;
+      color: white;
+      border-color: #7c3aed;
+    }
   </style>
 </head>
+
 <body>
   <div class="chat-header">
     <div class="avatar">🤖</div>
@@ -202,10 +266,10 @@
   <div class="messages" id="messages"></div>
 
   <div class="suggestions" id="suggestions">
-    <div class="suggestion" onclick="sendSuggestion(this)">🚚 Shipping time?</div>
-    <div class="suggestion" onclick="sendSuggestion(this)">↩️ How to return?</div>
-    <div class="suggestion" onclick="sendSuggestion(this)">💳 Payment options?</div>
-    <div class="suggestion" onclick="sendSuggestion(this)">📦 Track my order</div>
+    <div class="suggestion" onclick="sendSuggestion(this)">🚚 Lieferzeit?</div>
+    <div class="suggestion" onclick="sendSuggestion(this)">↩️ Wie retournieren?</div>
+    <div class="suggestion" onclick="sendSuggestion(this)">💳 Zahlungsoptionen?</div>
+    <div class="suggestion" onclick="sendSuggestion(this)">📦 Bestellung verfolgen</div>
   </div>
 
   <div class="input-area">
@@ -301,4 +365,5 @@
     input.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMessage() })
   </script>
 </body>
+
 </html>
